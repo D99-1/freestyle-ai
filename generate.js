@@ -6,7 +6,6 @@ const opts = {
     duration: 60 * 6, 
   };
   
-  const rateLimiter = new RateLimiterFlexible.RateLimiterMemory(opts);
   
 
   
@@ -14,8 +13,6 @@ const opts = {
 
       const basePromptPrefix = "Finish off this rap song about ";
       const generateAction = async (req, res) => {
-        rateLimiter.consume('userId', 1)
-        .then(async (rateLimiterRes) => {
 
          const configuration = new Configuration({
              apiKey: process.env.OPENAI_API_KEY,
@@ -38,10 +35,8 @@ const opts = {
        const basePromptOutput = baseCompletion.data.choices.pop()
      
        res.status(200).json({ output: basePromptOutput });
-    })
-    .catch((rateLimiterRes) => {
-      res.status(201).json({output: rateLimiterRes})
-    });
+    
+
      };
    
      export default generateAction
