@@ -2,7 +2,7 @@ import { Configuration, OpenAIApi } from 'openai'
 import * as RateLimiterFlexible from 'rate-limiter-flexible'
 
 const opts = {
-    points: 3, 
+    points: 1000, 
     duration: 60 * 6, 
   };
   
