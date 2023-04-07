@@ -1,2 +1,3 @@
-#Freestyle AI
+# Freestyle AI
+
 Your AI Rapping Assistant 
